@@ -11,11 +11,30 @@ export default class App extends Component {
     super();
     this.state = {
       season: [],
+      topRaces: [],
       year: 0
     }
   }
 
   componentDidMount(){
+    this.getSeason()
+    this.getFavorites()
+  }
+
+  addToFavorites = (race) => {
+    let editedSeason = []
+    for (let i = 0; i < this.state.season.length; i++){
+      if (race === this.state.season[i]){
+        editedSeason = this.state.season;
+        editedSeason.splice(i, 1)
+        this.setState({season: editedSeason})
+      }
+    }
+    axios.post('/api/favorites', race)
+    .then(res => this.getFavorites())
+  }
+
+  getSeason = () => {
     axios.get('/api/get-season')
     .then(res =>{
       this.setState({season: res.data})
@@ -23,8 +42,12 @@ export default class App extends Component {
     .catch(err => console.log(err))
   }
 
-  addToFavorites = () => {
-    
+  getFavorites = () => {
+    axios.get('/api/favorites')
+    .then(res =>{
+      this.setState({topRaces: res.data})
+    })
+    .catch(err => console.log(err))
   }
 
 
@@ -37,10 +60,10 @@ export default class App extends Component {
         <SearchBar />
         <div className="body-container">
           <div className="season-container">
-        <Season season={this.state.season}/>
+        <Season season={this.state.season} addFn={this.addToFavorites}/>
           </div>
           <div className="top-races">
-        <TopRaces />
+        <TopRaces topRaces={this.state.topRaces}/>
           </div>
         </div>
 

@@ -2,17 +2,23 @@ const favRaces = [];
 
 module.exports = {
     getFavorites: (req, res) => {
-        res.status(200),send(favRaces);
+        res.status(200).send(favRaces);
     },
     addToFavorites: (req, res) => {
-        const {race} = req.body;
-
-        favRaces.push(race)
+        const {raceRound, raceName, location} = req.body;
+        const pass = {
+            raceRound,
+            raceName,
+            location,
+            description: ''
+        }
+        favRaces.push(pass);
+        res.status(200).send(favRaces);
     },
     editHighlights: (req, res) => {
 
     },
     removeFromFavorites: (req, res) =>{
-        
+
     }
 }

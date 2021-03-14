@@ -4,15 +4,16 @@ const Season = (props) => {
     const {season, addFn} = props;
 
 
-    handleClick = () =>{
-        // add to favs fn
+    let handleClick = (val) => {
+        addFn(val)
     }
 
     return (
         <div className="season">
             {season.map(e =>{
                 return (
-                    <div onClick={() =>handleClick()}>
+                    <div onClick={() => handleClick(e)}>
+                        {/* {console.log(e)} */}
                         <p>Round {e.raceRound}</p>
                         <p>{e.raceName}</p>
                         <p>{e.location}</p>
