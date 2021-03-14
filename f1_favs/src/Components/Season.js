@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Season = (props) => {
     const {season, addFn} = props;
@@ -12,7 +12,7 @@ const Season = (props) => {
         <div className="season">
             {season.map(e =>{
                 return (
-                    <div onClick={() => handleClick(e)}>
+                    <div className='race' onClick={() => handleClick(e)}>
                         {/* {console.log(e)} */}
                         <p>Round {e.raceRound}</p>
                         <p>{e.raceName}</p>

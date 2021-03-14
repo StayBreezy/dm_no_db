@@ -32,6 +32,7 @@ export default class App extends Component {
     }
     axios.post('/api/favorites', race)
     .then(res => this.getFavorites())
+    .catch(err => console.log(err))
   }
 
   getSeason = () => {
@@ -50,6 +51,12 @@ export default class App extends Component {
     .catch(err => console.log(err))
   }
 
+  handleDeleteClick = (id, race) => {
+    axios.delete(`/api/favorites/${id}`, race)
+    .then(res => this.getFavorites())
+    .catch(err => console.log(err))
+}
+
 
 
   render() {
@@ -63,7 +70,7 @@ export default class App extends Component {
         <Season season={this.state.season} addFn={this.addToFavorites}/>
           </div>
           <div className="top-races">
-        <TopRaces topRaces={this.state.topRaces}/>
+        <TopRaces topRaces={this.state.topRaces} getFavorites={this.getFavorites} delete={this.handleDeleteClick}/>
           </div>
         </div>
 

@@ -48,9 +48,12 @@
   height: 70vh;
   background-color: grey;
 }
+html {
+  background-color: #15151e;
+}
 
 .top-races {
-  width: 30vw;
+  width: 25vw;
   height: 70vh;
   background-color: grey;
 }
@@ -58,4 +61,45 @@
 .season {
   display: flex;
   flex-wrap: wrap;
+}
+
+.race {
+  /* background-color: white; */
+  color: white;
+  border: 2px solid white;
+  border-radius: 25%;
+  margin: 10px;
+  /* padding-left: 10px; */
+  font-size: 12px;
+  width: 8vw;
+  text-align: center
+}
+
+header {
+  height: 10vh;
+  background-color: #e10600;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  margin: 0 auto;
+}
+
+.topRace {
+  color: white;
+  border: 2px solid white;
+  border-radius: 6%;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
 }
