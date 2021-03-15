@@ -75,6 +75,9 @@ html {
   width: 8vw;
   text-align: center
 }
+.race:hover {
+  background-color: rgb(255,6,0,1)
+}
 
 header {
   height: 10vh;
@@ -130,4 +133,8 @@ h2 {
 .search-bar > button {
   background: none;
   border: none;
+}
+
+h3 {
+  text-align: center;
 }

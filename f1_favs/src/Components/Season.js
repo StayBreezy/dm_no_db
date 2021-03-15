@@ -1,4 +1,5 @@
 import React from 'react';
+import Race from './Race'
 
 const Season = (props) => {
     const {season, addFn, year} = props;
@@ -9,18 +10,15 @@ const Season = (props) => {
     }
 
     return (
-        <div className="season">
-            <h3>{year}</h3>
+        <div>
+            <h3>Year: {year}</h3>
+            <div className="season">
             {season.map(e =>{
                 return (
-                    <div className='race' onClick={() => handleClick(e)}>
-                        {/* {console.log(e)} */}
-                        <p>Round {e.raceRound}</p>
-                        <p>{e.raceName}</p>
-                        <p>{e.location}</p>
-                    </div>
-                )
-            })}
+                    <Race e={e} handleClick={handleClick}/>
+                    )
+                })}
+                </div>
         </div>
     )
 }
