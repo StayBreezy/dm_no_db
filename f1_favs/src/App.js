@@ -17,7 +17,7 @@ export default class App extends Component {
   }
 
   componentDidMount(){
-    this.getSeason()
+    this.getSeason(this.state.year)
     this.getFavorites()
   }
 
@@ -35,8 +35,8 @@ export default class App extends Component {
     .catch(err => console.log(err))
   }
 
-  getSeason = () => {
-    axios.get(`/api/get-season/${this.state.year}`,)
+  getSeason = (val) => {
+    axios.get(`/api/get-season/${val}`)
     .then(res =>{
       this.setState({season: res.data})
     })
@@ -45,7 +45,7 @@ export default class App extends Component {
 
   changeYear = (val) => {
     this.setState({year: val})
-    this.getSeason()
+    this.getSeason(val)
   }
 
   getFavorites = () => {
@@ -72,7 +72,7 @@ export default class App extends Component {
         <SearchBar changeYear={this.changeYear}/>
         <div className="body-container">
           <div className="season-container">
-        <Season season={this.state.season} addFn={this.addToFavorites}/>
+        <Season year={this.state.year} season={this.state.season} addFn={this.addToFavorites}/>
           </div>
           <div className="top-races">
         <TopRaces topRaces={this.state.topRaces} getFavorites={this.getFavorites} delete={this.handleDeleteClick}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Season = (props) => {
-    const {season, addFn} = props;
+    const {season, addFn, year} = props;
 
 
     let handleClick = (val) => {
@@ -10,6 +10,7 @@ const Season = (props) => {
 
     return (
         <div className="season">
+            <h3>{year}</h3>
             {season.map(e =>{
                 return (
                     <div className='race' onClick={() => handleClick(e)}>

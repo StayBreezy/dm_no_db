@@ -45,7 +45,7 @@
 
 .season-container {
   width: 60vw;
-  height: 70vh;
+  height: 86vh;
   background-color: grey;
 }
 html {
@@ -54,7 +54,7 @@ html {
 
 .top-races {
   width: 25vw;
-  height: 70vh;
+  height: 86vh;
   background-color: grey;
 }
 
@@ -69,7 +69,7 @@ html {
   border: 2px solid white;
   border-radius: 25%;
   height: 17vh;
-  margin: 10px;
+  margin: 8px;
   /* padding-left: 10px; */
   font-size: 12px;
   width: 8vw;
