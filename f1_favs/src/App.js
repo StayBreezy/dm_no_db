@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       season: [],
       topRaces: [],
-      year: 0
+      year: 2020
     }
   }
 
@@ -36,11 +36,16 @@ export default class App extends Component {
   }
 
   getSeason = () => {
-    axios.get('/api/get-season')
+    axios.get(`/api/get-season/${this.state.year}`,)
     .then(res =>{
       this.setState({season: res.data})
     })
     .catch(err => console.log(err))
+  }
+
+  changeYear = (val) => {
+    this.setState({year: val})
+    this.getSeason()
   }
 
   getFavorites = () => {
@@ -60,11 +65,11 @@ export default class App extends Component {
 
 
   render() {
-    console.log(this.state.season)
+    console.log(this.state.year)
     return(
       <div>
-        <header><h1>Pick Your Top 3 Races From 2020 F1 Season</h1></header>
-        <SearchBar />
+        <header><h1>Pick Your Top 3 Races From any F1 Season</h1></header>
+        <SearchBar changeYear={this.changeYear}/>
         <div className="body-container">
           <div className="season-container">
         <Season season={this.state.season} addFn={this.addToFavorites}/>

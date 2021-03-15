@@ -41,14 +41,13 @@ export default class TopRaces extends Component {
                     return (
                         <div className='topRace'>
                             <button className="deleteBtn" onClick={() => this.props.delete(e.id)}>{iconX}</button>
-                            <p>Round {e.raceRound}</p>
-                            <p>{e.raceName}</p>
-                            <p>{e.location}</p>
+                            <p>Round {e.raceRound}   {e.raceName}</p>
+                            <p>Location: {e.location}</p>
                             <p>Three Word Race Review: {e.description}</p>
                             {/* <p>{e.id}</p> */}
                             {console.log(e.id)}
                             <input onChange={(e) => this.handleChange(e.target.value)} />
-                            <button onClick={() => this.handleClick(e)}></button>
+                            <button onClick={() => this.handleClick(e)}>Add TWRR</button>
                         </div>
                     )
                 })}

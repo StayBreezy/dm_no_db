@@ -8,7 +8,7 @@ const express = require('express'),
 app.use(express.json());
 
 
-app.get('/api/get-season', seasonCtrl.getSeason)
+app.get('/api/get-season/:year', seasonCtrl.getSeason)
 
 app.post('/api/favorites', favCtrl.addToFavorites)
 app.get('/api/favorites', favCtrl.getFavorites)

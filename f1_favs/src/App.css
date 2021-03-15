@@ -68,6 +68,7 @@ html {
   color: white;
   border: 2px solid white;
   border-radius: 25%;
+  height: 17vh;
   margin: 10px;
   /* padding-left: 10px; */
   font-size: 12px;
@@ -90,8 +91,8 @@ h1 {
   color: white;
   border: 2px solid white;
   border-radius: 6%;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 5px;
+  padding-top: 5px;
   padding-left: 10px;
   padding-bottom: 10px;
   font-size: 12px;
@@ -100,6 +101,33 @@ h1 {
 .deleteBtn {
   position: absolute;
   right: 10px;
+  background: none;
+  border: none;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.search-bar {
+  width: 20vw;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+}
+.search-bar > p {
+  margin: 0;
+  color: white;
+}
+
+.search-bar > input{
+  width: 4vw;
+  }
+
+.search-bar > button {
   background: none;
   border: none;
 }
