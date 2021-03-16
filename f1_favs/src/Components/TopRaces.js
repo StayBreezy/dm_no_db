@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TRace from './TRace';
 
 export default class TopRaces extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ export default class TopRaces extends Component {
       })
       .catch((err) => console.log(err));
   };
+
+  deleteFn = (val) => this.props.delete(val)
 
   render() {
     let iconX = (
@@ -49,23 +52,7 @@ export default class TopRaces extends Component {
         <h2>Top 3 Races</h2>
         {this.props.topRaces.map((e) => {
           return (
-            <div className="topRace">
-              <button
-                className="deleteBtn"
-                onClick={() => this.props.delete(e.id)}
-              >
-                {iconX}
-              </button>
-              <p>
-                Round {e.raceRound} {e.raceName}
-              </p>
-              <p>Location: {e.location}</p>
-              <p>Three Word Race Review: {e.description}</p>
-              {/* <p>{e.id}</p> */}
-              {console.log(e.id)}
-              <input onChange={(e) => this.handleChange(e.target.value)} />
-              <button onClick={() => this.handleClick(e)}>Add TWRR</button>
-            </div>
+            <TRace e={e} iconX={iconX}topRaces={this.props.topRaces} getFavorites={this.props.getFavorites} deleteFn={this.deleteFn} handleClick={this.handleClick} handleChange={this.handleChange} />
           );
         })}
       </div>
