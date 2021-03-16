@@ -68,7 +68,7 @@ export default class App extends Component {
     console.log(this.state.year)
     return(
       <div>
-        <header><h1>Pick Your Top 3 Races From any F1 Season</h1></header>
+        <header><h1>Pick Your Top 3 Races From Any F1 Season</h1></header>
         <SearchBar changeYear={this.changeYear}/>
         <div className="body-container">
           <div className="season-container">
